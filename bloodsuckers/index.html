@@ -1,14 +1,139 @@
 <!DOCTYPE html>
 <html lang="ru">
   <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Живоглоты | Кровавая Западня</title>
     <link rel="icon" type="image/png" href="../images/favicon.png">
+    <link rel="stylesheet" href="../styles.css">
+    <script src="https://unpkg.com/imask" defer></script>
+    <script src="../script.js" defer></script>
   </head>
   <body>
-    <div style="display: inline-block;">
-      <h1>ОФОРМЛЕНИЕ ПОЯВИТСЯ ПОЗЖЕ</h1>
-      <p>вот тут будут отчёты охотников</p>
-      <a href="../">назад</a>
+    <div class= 'info'>
+      <div style="display: block;">
+      <div class="oforma">
+      <h1>Отчёты Живоглотов</h1>
+      <form align="left">
+      <input type="radio" id="sborJG" name="otchetsJG" value="sbor" checked>
+      <lavel for="sborJG">Собирающие</lavel>
+      <br>
+      <input type="radio" id="lonelyJG" name="otchetsJG" value="lonely">
+      <lavel for="lonelyJG">Одиночная охота</lavel>
+      <br>
+      <input type="radio" id="callJG" name="otchetsJG" value="call">
+      <lavel for="callJG">Добыча ресурсов</lavel>
+      <br>
+      <input type="radio" id="kinJG" name="otchetsJG" value="kin">
+      <lavel for="kinJG">Кин-мун-кай</lavel>
+      <br><br>
+      <label for="date">Дата сбора: </label>
+      <input class="pricol" type="text" name="date" id="dateofcall">
+      <label for="time">Время сбора:</label>
+      <input class="pricol" type="time" name="time" id="timeofcall">
+    </form>
     </div>
+    <!--а вы зачем сюда посмотрели?...-->
+    <br>
+    <div class="oforma pathblock" id="sbor" style="display: block">
+      <h1>Отчёт собирающих</h1>
+      <form align="left">
+      <label for="idofcaller">ID собирающего:</label>
+        <input class="pricol" type="number" name="idofcaller" id="idofcaller">
+        <br>
+        <label for="idofved">ID ведущего:</label>
+        <input class="pricol" type="number" name="idofved" id="idofved">
+        <br>
+        <label for="idofhunters">ID охотников (через пробел):</label>
+        <input class="pricol" type="text" name="idofhunters" id="idofhunters">
+        <br>
+        <label for="idofnoses">ID носильщиков (через пробел):</label>
+        <input class="pricol" type="text" name="idofnoses" id="idofnoses">
+        <br>
+        <label for="idofnonorma">ID без нормы (через пробел):</label>
+        <input class="pricol" type="text" name="idofnonorma" id="idofnonorma">
+    </form>
+    <br>
+    <button class="pricol" style="padding: 4px; cursor: pointer;" onclick="vivodotcheta()">Вывести отчёт</button>
+  
+    </div>
+    <div class="oforma pathblock" id="lonely" style="display: none">
+      <h1>Одиночная охота</h1>
+      <form align="left">
+      <label for="idofhunter">ID охотящегося:</label>
+        <input class="pricol" type="number" name="idofhunter" id="idofhunter">
+        <br>
+      <label for="kolbodichi">Поймано дичи: </label>
+      <input class="pricol" type="number" name="kolvodichi" id="kolvodichi">
+      <br>
+      <h3>Вставка скриншота (ImgBB):</h3>
+      <input type="file" id="imageInput" accept="image/*">
+      <br><br>
+    </form>
+    <div style="display: flex; justify-content: flex-start;">
+      <button class="pricol" style="padding: 4px; cursor: pointer;" onclick="uploadImage()">Загрузить на ImgBB</button>
+  </div>
+  <form align="left">
+    <h3>Или вставка готовой ссылки:</h3>
+    <input class="pricol" type="text" name="ssilka" id="ssilka1">
+  </form>
+    <br>
+    <button class="pricol" style="padding: 4px; cursor: pointer;" onclick="vivodotcheta()">Вывести отчёт</button>
+  </div>
+    <div class="oforma pathblock" id="call" style="display: none">
+      <h1>Добыча ресурсов</h1>
+      <div align="left">
+      <label for="idofuchastnik">ID участника:</label>
+        <input class="pricol" type="number" name="idofuchastnik" id="idofuchastnik">
+        <br>
+        <h3>Вид деятельности:</h3>
+        <input type="radio" id="plavanie" name="deatelnost" value="плавание"checked>
+        <label for="plavanie">Плавание</label>
+        <br>
+        <input type="radio" id="lazanie" name="deatelnost" value="лазание">
+        <label for="lazanie">Лазание</label>
+        <br>
+        <h3>Вид и количество ресурсов:</h3>
+        <div id="mur"></div>
+        <button class="pricol" style="padding: 4px; cursor: pointer;" onclick="resursi()">Добавить ресурс</button>
+        <h3>Вставка скриншота (ImgBB):</h3>
+        <input type="file" id="imageInput" accept="image/*">
+        <br><br>
+        </div>
+      <div style="display: flex; justify-content: flex-start;">
+        <button class="pricol" style="padding: 4px; cursor: pointer;" onclick="uploadImage()">Загрузить на ImgBB</button>
+    </div>
+    <form align="left">
+      <h3>Или вставка готовой ссылки:</h3>
+      <input class="pricol" type="text" name="ssilka" id="ssilka2">
+    </form>
+    <br>
+    <button class="pricol" style="padding: 4px; cursor: pointer;" onclick="vivodotcheta()">Вывести отчёт</button>
+    </div>
+    <div class="oforma pathblock" id="kin" style="display: none">
+      <h1>Кин-Мун-Кай</h1>
+      <form align="left">
+      <label for="idoforg">ID организатора:</label>
+        <input class="pricol" type="number" name="idoforg" id="idoforg">
+        <br>
+        <label for="idofuchasthikikin">ID, кол-во дичи (через пробел):</label>
+        <input class="pricol" type="text" name="idofuchasthikikin" id="idofuchasthikikin">
+      </form>
+      <br>
+    <button class="pricol" style="padding: 4px; cursor: pointer;" onclick="vivodotcheta()">Вывести отчёт</button>
+    </div>
+    <br>
+    <div class="oforma">
+      <h1>Готовый отчёт</h1>
+      <textarea id="one" placeholder="Тут будет ваш отчёт"></textarea>
+    </div>
+    <br>
+    <a href="../" style="text-decoration: none;">
+      <div class="oforma ssilka">
+        <h2>ГЛАВНАЯ</h2>
+      </div>
+      </a>
+    </div>
+  </div>
   </body>
 </html>

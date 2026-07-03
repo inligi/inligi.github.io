@@ -1,0 +1,57 @@
+body {
+    background-color: #fdac9d;
+}
+
+textarea {
+    background-color: #1f0703;
+    font-family: monospace;
+    color: #de2100;
+    border: 3px solid #cb1f00;
+    width: 400px;
+    height: 180px;
+    outline: none;
+}
+
+textarea::placeholder {
+    color: #5e0e00;
+  }
+
+.pricol {
+    background-color: #1f0703;
+    font-family: monospace;
+    color: #de2100;
+    border: 2px solid #cb1f00;
+    outline: none;
+}
+
+.info {
+    display: flex;
+    justify-content: center;
+}
+
+.oforma {
+    background-color: #c14832;
+    border: 7px solid #4f1b12;
+    padding: 10px;
+    text-align: center;
+    font-family: monospace;
+    color: #230c08;
+}
+
+.ssilka:hover {
+    color: #ff2600;
+    transition: color 0.5s;
+}
+
+.ssilka:not(:hover) {
+    color: #230c08;
+    transition: color 0.5s;
+}
+
+#dateofcall {
+    width: 55px;
+}
+
+#idofhunter, #idofcaller, #idofved, #kolvodichi, #idoforg, #idofuchastnik {
+    width: 80px;
+}

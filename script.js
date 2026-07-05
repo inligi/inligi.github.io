@@ -33,8 +33,8 @@ function resursi(){
 
 }
 
-async function uploadImage() {
-    const fileInput = document.getElementById('imageInput');
+async function uploadImage(classes) {
+    const fileInput = document.getElementById(`${classes}`);
     const file = fileInput.files[0];
     if (!file) {
         alert("Скриншот не выбран");

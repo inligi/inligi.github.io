@@ -27,6 +27,8 @@ textarea::placeholder {
 .info {
     display: flex;
     justify-content: center;
+    min-width: fit-content;
+    padding: 0 10px;
 }
 
 .oforma {

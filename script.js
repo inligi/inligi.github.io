@@ -35,6 +35,11 @@ function resursi(){
 
 async function uploadImage(classes) {
     const fileInput = document.getElementById(`${classes}`);
+    if (!fileInput) {
+        alert("Элемент загрузки не найден");
+        return;
+    }
+    
     const file = fileInput.files[0];
     if (!file) {
         alert("Скриншот не выбран");
@@ -56,8 +61,12 @@ async function uploadImage(classes) {
         if (data.success) {
             const imageUrl = data.data.url;
             alert("Скриншот успешно выложен на ImgBB");
-            sos1.value = `${imageUrl}`
-            sos2.value = `${imageUrl}`;
+            if (classes === 'imageInputLonely') {
+                sos1.value = imageUrl;
+            }
+            else if (classes === 'imageInputCall') {
+                sos2.value = imageUrl;
+            }
         } else {
             alert("Ошибка загрузки: " + (data.error?.message || "неизвестная ошибка"));
         }

@@ -1,5 +1,5 @@
 //не трогайте апикей умоляю
-const API_KEY = "f3c48b9efc28fc03cdbb2e2210b22c6a";
+const API_KEY = "1ca34fe449bc4503d2d083f208f8c262";
 const sos1 = document.getElementById("ssilka1");
 const sos2 = document.getElementById("ssilka2");
 let kyka = [{id: 0, name:`<input class="pricol sborka" type="text" name="0" id="vid0" value=''>

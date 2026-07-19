@@ -135,7 +135,7 @@ let otchet1 = `[b]Охотничий патруль, ${datee}, ${timee}[/b]
 let otchet2 = `[b]Одиночная охота, ${datee}, ${timee}[/b]
 [b]Охотящийся:[/b] [link${idofhunterlonely}] [${idofhunterlonely}]
 [b]Количество пойманной дичи:[/b] [${kolvodichilonely}]
-[b]Скриншот истории:[/b] [url=${sos1}][скриншот][/url]`
+[b]Скриншот:[/b] [url=${sos1}][скриншот][/url]`
 let otchet3 = `[b]Добыча ресурсов, ${datee}, ${timee}[/b]
 [b]Участник:[/b] [link${idofuchastnikcall}] [${idofuchastnikcall}]
 [b]Вид деятельности:[/b] ${document.querySelector('input[name="deatelnost"]:checked').value}

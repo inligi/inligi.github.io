@@ -100,12 +100,19 @@ hunterssbor += `[link${item}] [${item}], `;
 idofnosessbor.forEach((item) => {
     nosessbor += `[link${item}] [${item}], `;
 })
-if (idofnonormasbor.length !== 0 & idofnonormasbor[0] !== "") {
-idofnonormasbor.forEach((item) => {
+if (idofnosessbor.length !== 0 & idofnosessbor[0] !== "") {
+idofnosessbor.forEach((item) => {
     nonormasbor += `[link${item}] [${item}], `;
 })}
 else {
     nonormasbor = "—  ";
+}
+if (idofnonormasbor.length !== 0 & idofnonormasbor[0] !== "") {
+idofnonormasbor.forEach((item) => {
+    nosessbor += `[link${item}] [${item}], `;
+})}
+else {
+    nosessbor = "—  ";
 }
 hunterssbor = hunterssbor.slice(0, hunterssbor.length - 2);
 nosessbor = nosessbor.slice(0, nosessbor.length - 2);

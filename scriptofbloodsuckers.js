@@ -1,7 +1,5 @@
 //не трогайте апикей умоляю
 const API_KEY = "1ca34fe449bc4503d2d083f208f8c262";
-const sos1 = document.getElementById("ssilka1");
-const sos2 = document.getElementById("ssilka2");
 let kyka = [{id: 0, name:`<input class="pricol sborka" type="text" name="0" id="vid0" value=''>
     <input class="pricol sborka" type="number" name="0" id="kolvo0" style="width: 50px;" value=''>
     <br id="probel0">`}];
@@ -33,7 +31,7 @@ function resursi(){
 
 }
 
-async function uploadImage(classes) {
+async function uploadImage(classes, am) {
     const fileInput = document.getElementById(`${classes}`);
     if (!fileInput) {
         alert("Элемент загрузки не найден");
@@ -61,12 +59,7 @@ async function uploadImage(classes) {
         if (data.success) {
             const imageUrl = data.data.url;
             alert("Скриншот успешно выложен на ImgBB");
-            if (classes === 'imageInputLonely') {
-                sos1.value = imageUrl;
-            }
-            else if (classes === 'imageInputCall') {
-                sos2.value = imageUrl;
-            }
+            document.getElementById(am).value = `${imageUrl}`;
         } else {
             alert("Ошибка загрузки: " + (data.error?.message || "неизвестная ошибка"));
         }

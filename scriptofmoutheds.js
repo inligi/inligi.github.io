@@ -12,7 +12,7 @@ let mesto = document.getElementById('vidlocate').value;
 document.getElementById('mur').innerHTML = '<p><i><b>Нарушители отсутствуют</b></i></p>';
 document.getElementById('murdozor').innerHTML = '<p><i><b>Нарушители отсутствуют</b></i></p>';
 
-const inputDate = document.getElementById('dateofcall')
+const inputDate = document.getElementById('dateofcallyear');
 
 const maska1 = {
     mask: "00.00.00",
@@ -134,7 +134,7 @@ let secondpatrul = '';
 let uchastniki = '';
 let narushi = '';
 let narushidozor = '';
-const datee = document.getElementById("dateofcall").value;
+const datee = document.getElementById("dateofcallyear").value;
 const timee = document.getElementById("timeofcall").value;
 const idofchallengersbor = document.getElementById("idofchallenger").value;
 const idofsborpatrul = document.getElementById("idofsbor").value;

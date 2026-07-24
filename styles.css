@@ -54,6 +54,10 @@ textarea::placeholder {
     width: 55px;
 }
 
+#dateofcallyear {
+width: 70px
+}
+
 #idofgrushuyuschii, #idofmg, #idofbg, #idofsecond, #idofchallenger, #idofsbor, #idofdozorniistart, #idofhunter, #idofcaller, #idofved, #kolvodichi, #idoforg, #idofuchastnik {
     width: 80px;
 }

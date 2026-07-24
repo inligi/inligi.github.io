@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Горлодёры | Кровавая Западня</title>
+    <link rel="icon" type="image/png" href="../images/favicon.png">
+    <link rel="stylesheet" href="../styles.css">
+    <script src="https://unpkg.com/imask" defer></script>
+    <script src="../scriptofmoutheds.js" defer></script>
+  </head>
+  <body>
+    <div class= 'info'>
+      <div style="display: block;">
+        <!--ОТЧЁТНАЯ-->
+      <div class="oforma">
+      <h1>Отчёты Горлодёров</h1>
+      <form align="left">
+      <input type="radio" id="challengeMH" name="otchetsMH" value="challenge" checked>
+      <lavel for="challengeMH">Проведение испытания</lavel>
+      <br>
+      <input type="radio" id="patrulMH" name="otchetsMH" value="patrul">
+      <lavel for="patrulMH">Проведение Пай-Тхаана</lavel>
+      <br>
+      <input type="radio" id="dozorMH" name="otchetsMH" value="dozor">
+      <lavel for="dozorMH">Ваар-Тум</lavel>
+      <br>
+      <input type="radio" id="grushMH" name="otchetsMH" value="grush">
+      <lavel for="grushMH">Проведение грушевания</lavel>
+      <div class="dateandtime" style="display: none;">
+      <br>
+      <div class="onlydate" style="display: none;">
+      <label for="date">Дата сбора: </label>
+      <input class="pricol" type="text" name="date" id="dateofcall">
+      </div>
+      <div class="onlytime" style="display: none;">
+      <label for="time">Время сбора:</label>
+      <input class="pricol" type="time" name="time" id="timeofcall">
+    </div>
+    <div class="dozortime" style="display: none;">
+      <label for="time">Время:</label>
+      <input class="pricol" type="time" name="timestart" id="timestart">
+      <span>-</span>
+      <input class="pricol" type="time" name="timefinal" id="timefinal">
+    </div></div>
+    </form>
+    </div>
+    <br>
+    <div class="oforma pathblock" id="challenge" style="display: block">
+      <h1>Проведение испытания</h1>
+      <form align="left">
+      <label for="idofchallenger">ID испытуемого:</label>
+        <input class="pricol" type="number" name="idofchallenger" id="idofchallenger">
+        <br>
+        <h3>Вставка скриншота (ImgBB):</h3>
+        <input type="file" id="imageInputChallenge" accept="image/*">
+        <br><br>
+      </form>
+      <div style="display: flex; justify-content: flex-start;">
+        <button class="pricol" style="padding: 4px; cursor: pointer;" onclick="uploadImage('imageInputChallenge', 'ssilka1')">Загрузить на ImgBB</button>
+    </div>
+    <form align="left">
+      <h3>Или вставка готовой ссылки:</h3>
+      <input class="pricol" type="text" name="ssilka1" id="ssilka1">
+    </form>
+      <br>
+    <button class="pricol" style="padding: 4px; cursor: pointer;" onclick="vivodotcheta()">Вывести отчёт</button>
+    </div>
+    <div class="oforma pathblock" id="patrul" style="display: none">
+      <h1>Проведение Пай-Тхаана</h1>
+      <form align="left">
+      <label for="idofsbor">ID собирающего:</label>
+        <input class="pricol" type="number" name="idofsbor" id="idofsbor">
+        <br>
+        <label for="idofsecond">ID ведущего второй части (если есть):</label>
+        <input class="pricol" type="number" name="idofsecond" id="idofsecond">
+        <br>
+        <label for="idouchastniki">ID участников (через пробел):</label>
+        <input class="pricol" type="text" name="idouchastniki" id="idouchastniki">
+    </form>
+    <div align="left">
+    <h3>Нарушители:</h3>
+    <div id="mur"></div><br class="spasite" style="display: none;">
+    <button class="pricol" style="padding: 4px; cursor: pointer;" onclick="appnarushi()">Добавить нарушителя</button>
+    <br><br>
+  </div>
+    <button class="pricol" style="padding: 4px; cursor: pointer;" onclick="vivodotcheta()">Вывести отчёт</button>
+  </div>
+    <div class="oforma pathblock" id="dozor" style="display: none">
+      <h1>Отчёты Ваар-Тума</h1>
+      <div align="left">
+        <h3>Вид отчёта:</h3>
+        <input type="radio" id="startofvaartum" name="vaartumvid" value="начало" checked>
+        <label for="startofvaartum">Начало</label>
+        <br>
+        <input type="radio" id="provedenieofvaartum" name="vaartumvid" value="проведение">
+        <label for="provedenieofvaartum">Проведение</label>
+        <br><br>
+        <label for="idofdozorniistart">ID дозорного: </label>
+        <input class="pricol" type="number" name="idofdozorniistart" id="idofdozorniistart">
+        <br>
+        <label for="viddozora">Вид дозора: </label>
+        <select class='pricol' name="viddozora" id="viddozora">
+          <option value="пассивный" selected>Пассивный</option>
+          <option value="активный">Активный</option>
+          <option value="ночной">Ночной</option>
+        </select>
+        <div id='marshrutorlocate' style="display: none;">
+          <h3>Локация или маршрут:</h3>
+          <input type="radio" id="viborlocate" name="pomogite" value="Локация"checked>
+          <label for="viborlocate">Локация</label>
+          <br>
+          <input type="radio" id="vibormarshrut" name="pomogite" value="Маршрут">
+          <label for="vibormarshrut">Маршрут</label>
+          <br><br>
+        </div>
+        <div id='dozorlocate' style="display: block;">
+          <label for="vidlocate">Локация: </label>
+          <select class='pricol' name="vidlocate" id="vidlocate">
+            <option value="Оледеневшее озеро" selected>Оледеневшее озеро</option>
+            <option value="Хребет вдовы">Хребет вдовы</option>
+            <option value="Мертвые холмы">Мертвые холмы</option>
+            <option value="Кровавые воды">Кровавые воды</option>
+          </select>
+        </div>
+        <div id='dozormarshrut' style="display: none;">
+          <label for="vidmarshruta">Маршрут: </label>
+          <select class='pricol' name="vidmarshruta" id="vidmarshruta">
+            <option value="Ледяной перевал – Оледеневшее озеро – Ледяные трещины" selected>Перевал – Трещины</option>
+            <option value="Мертвые холмы – Зловещая пасть – Кровавые воды">Холмы – Воды</option>
+            <option value="Углубление из корней – Хребет вдовы – Серый лес">Углубление – Лес</option>
+          </select>
+        </div>
+        <div class="vaartumvid" id="startofvaartumdiv" style="display: block;"></div>
+        <div class="vaartumvid" id="provedenieofvaartumdiv" style="display: none;">
+          <h3>Нарушители:</h3>
+    <div id="murdozor"></div><br class="spasite" style="display: none;"><br class="spasitedozor" style="display: none;">
+    <button class="pricol" style="padding: 4px; cursor: pointer;" onclick="appnarushidozor()">Добавить нарушителя</button>
+    <br>
+        </div>
+        </div>
+    <br>
+    <button class="pricol" style="padding: 4px; cursor: pointer;" onclick="vivodotcheta()">Вывести отчёт</button>
+    </div>
+    <div class="oforma pathblock" id="grush" style="display: none">
+      <h1>Отчёты грушеваний</h1>
+      <div align="left">
+        <h3>Вид грушевания:</h3>
+        <input type="radio" id="og" name="grushi" value="Одиночное" checked>
+        <label for="og">Одиночное</label>
+        <br>
+        <input type="radio" id="dg" name="grushi" value="Двойное">
+        <label for="dg">Двойное</label>
+        <br><br>
+        <div class="grushblock" id='dggrush' style="display: none;">
+          <label for="idofbg">ID большой груши: </label>
+          <input class="pricol" type="number" name="idofbg" id="idofbg">
+          <br>
+          <label for="idofmg">ID малой груши: </label>
+          <input class="pricol" type="number" name="idofmg" id="idofmg">
+        </div>
+        <div class="grushblock" id='oggrush' style="display: block;">
+          <label for="idofgrushuyuschii">ID грушующего: </label>
+          <input class="pricol" type="number" name="idofgrushuyuschii" id="idofgrushuyuschii">
+        </div>
+      </div>
+      <br>
+    <button class="pricol" style="padding: 4px; cursor: pointer;" onclick="vivodotcheta()">Вывести отчёт</button>
+    </div>
+    <br>
+    <!--А ВОТ ТУТ ВЫПАДАЕТ ОТЧЁТИК-->
+    <div class="oforma">
+      <h1>Готовый отчёт</h1>
+      <textarea id="one" placeholder="Тут будет ваш отчёт"></textarea>
+    </div>
+    <br>
+    <!--ХРЕНЬ КИДАЮЩАЯ НА ГЛАВНУЮ-->
+    <a href="../" style="text-decoration: none;">
+      <div class="oforma ssilka">
+        <h2>ГЛАВНАЯ</h2>
+      </div>
+      </a>
+    </div>
+  </div>
+  </body>
+</html>

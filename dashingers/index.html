@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Лихосмеи | Кровавая Западня</title>
+    <link rel="icon" type="image/png" href="../images/favicon.png">
+    <link rel="stylesheet" href="../styles.css">
+    <script src="../scriptofdashingers.js" defer></script>
+  </head>
+  <body>
+    <div class= 'info'>
+      <div style="display: block;">
+        <!--ОТЧЁТНАЯ-->
+      <div class="oforma">
+      <h1>Отчёты Лихосмеев</h1>
+      <form align="left">
+        <input type="radio" id="giveDS" name="otchetsDS" value="give" checked>
+        <label for="giveDS">Взятие проведения</label>
+        <br>
+        <input type="radio" id="provedenieDS" name="otchetsDS" value="provedenie">
+        <label for="provedenieDS">Проведение</label>
+        <br>
+        <input type="radio" id="worksDS" name="otchetsDS" value="works">
+        <label for="worksDS">Отпись готовых работ</label>
+        <br><br class="hz" style="display: block;">
+        <div class="hz" style="display: block;">
+          <label for="time">Время сбора:</label>
+          <input class="pricol" type="time" name="time" id="timeofcall">
+        </div>
+        </form>
+        </div>
+        <br>
+        <div class="oforma pathblock" id="give" style="display: block">
+          <h1>Взятие проведения</h1>
+          <div align="left">
+            <h3>Вид деятельности:</h3>
+            <input type="radio" id="games1" name="deatelnost1" value="игр" checked>
+            <label for="games1">Игры</label>
+            <br>
+            <input type="radio" id="stories1" name="deatelnost1" value="вечера сказок">
+            <label for="stories1">Сказки</label>
+            <br><br>
+            <label for="idofvzal">ID взявшего проведение:</label>
+        <input class="pricol" type="number" name="idofvzal" id="idofvzal">
+        <br>
+          </div>
+        <br>
+        <button class="pricol" style="padding: 4px; cursor: pointer;" onclick="vivodotcheta()">Вывести отчёт</button>
+        </div>
+        <div class="oforma pathblock" id="provedenie" style="display: none">
+          <h1>Отчёты о проведении</h1>
+          <div align="left">
+            <h3>Вид деятельности:</h3>
+            <input type="radio" id="games2" name="deatelnost2" value="игры" checked>
+            <label for="games2">Игры</label>
+            <br>
+            <input type="radio" id="stories2" name="deatelnost2" value="вечер сказок">
+            <label for="stories2">Сказки</label>
+            <br><br>
+            <input id='citty' type="checkbox">
+            <label for="citty">Я кошка</label>
+            <br><br>
+            <div class='vtor' id="игры" style="display: block;">
+              <label for="idofprovodgame">ID проводящего:</label>
+              <input class="pricol" type="number" name="idofprovodgame" id="idofprovodgame">
+              <br>
+              <label for="idofusergame">ID, баллы (через пробел):</label>
+              <input class="pricol" type="text" name="idofusergame" id="idofusergame">
+              <br>
+            </div>
+            <div class='vtor' id="вечер сказок" style="display: none;">
+              <label for="idofprovodstory">ID проводящего:</label>
+              <input class="pricol" type="number" name="idofprovodstory" id="idofprovodstory">
+              <br>
+              <label for="idofuserstory">ID участников (через пробел):</label>
+              <input class="pricol" type="text" name="idofuserstory" id="idofuserstory">
+              <br>
+            </div>
+          </div>
+        <br>
+        <button class="pricol" style="padding: 4px; cursor: pointer;" onclick="vivodotcheta()">Вывести отчёт</button>
+        </div>
+    <div class="oforma pathblock" id="works" style="display: none">
+      <h1>Отпись готовых работ</h1>
+      <div align="left">
+      <label for="idofvipol">ID выполнившего:</label>
+        <input class="pricol" type="number" name="idofvipol" id="idofvipol">
+        <br>
+        <label for="numberofzakaz">Номер заказа:</label>
+        <input class="pricol" type="number" name="numberofzakaz" id="numberofzakaz">
+      </div>
+    <br>
+    <button class="pricol" style="padding: 4px; cursor: pointer;" onclick="vivodotcheta()">Вывести отчёт</button>
+    </div>
+    <br>
+    <!--А ВОТ ТУТ ВЫПАДАЕТ ОТЧЁТИК-->
+    <div class="oforma">
+      <h1>Готовый отчёт</h1>
+      <textarea id="one" placeholder="Тут будет ваш отчёт"></textarea>
+    </div>
+    <br>
+    <!--ХРЕНЬ КИДАЮЩАЯ НА ГЛАВНУЮ-->
+    <a href="../" style="text-decoration: none;">
+      <div class="oforma ssilka">
+        <h2>ГЛАВНАЯ</h2>
+      </div>
+      </a>
+    </div>
+  </div>
+  </body>
+</html>

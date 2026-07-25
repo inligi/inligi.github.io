@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Омыватели | Кровавая Западня</title>
+    <link rel="icon" type="image/png" href="../images/favicon.png">
+    <link rel="stylesheet" href="../styles.css">
+    <script src="../scriptofwashers.js" defer></script>
+  </head>
+  <body>
+    <div class= 'info'>
+      <div style="display: block;">
+        <!--ОТЧЁТНАЯ-->
+      <div class="oforma">
+      <h1>Отчёты Омывателей</h1>
+      <form align="left">
+      <input type="radio" id="patrulWS" name="otchetsWS" value="patrul" checked>
+      <lavel for="patrulWS">Травяной патруль</lavel>
+      <br>
+      <input type="radio" id="uborkaWS" name="otchetsWS" value="uborka">
+      <lavel for="uborkaWS">Проведение уборки</lavel>
+      <br>
+      <input type="radio" id="lizWS" name="otchetsWS" value="liz">
+      <lavel for="lizWS">Вылизывание</lavel>
+    </form>
+    </div>
+    <br>
+    <div class="oforma pathblock" id="patrul" style="display: block">
+      <h1>Травяной патруль</h1>
+      <form align="left">
+        <label for="vidsbora">Вид сбора: </label>
+        <select class='pricol' name="vidsbora" id="vidsbora">
+          <option value="травник" selected>Травник</option>
+          <option value="мховник">Мховник</option>
+          <option value="палочник">Палочник</option>
+        </select>
+        <br>
+        <label for="idofvedWS">ID ведущего:</label>
+        <input class="pricol" type="number" name="idofvedWS" id="idofvedWS">
+        <br>
+        <label for="idofuserWS">ID участников (через пробел):</label>
+        <input class="pricol" type="text" name="idofuserWS" id="idofuserWS">
+        <br>
+        <label for="kolvoresov">Количество ресурсов:</label>
+        <input class="pricol" type="number" name="kolvoresov" id="kolvoresov">
+        <div class="mouses" style="display: none;">
+        <label for="mishiandid">ID, кол-во мышей (через пробел):</label>
+        <input class="pricol" type="text" name="mishiandid" id="mishiandid">
+      </div>
+      </form>
+    <br>
+    <button class="pricol" style="padding: 4px; cursor: pointer;" onclick="vivodotcheta()">Вывести отчёт</button>
+    </div>
+    <div class="oforma pathblock" id="uborka" style="display: none">
+      <h1>Проведение уборки</h1>
+      <div align="left">
+        <label for="viduborki">Вид уборки: </label>
+        <select class='pricol' name="viduborki" id="viduborki">
+          <option value="относка оффов" selected>Уборка оффов</option>
+          <option value="чистка в КсД">Уборка КсД</option>
+          <option value="уборка в Тихой чаще">Уборка чащи</option>
+        </select>
+        <br>
+      <label for="idouseruborka">ID участника:</label>
+        <input class="pricol" type="number" name="idouseruborka" id="idouseruborka">
+        <br>
+        <label for="ubrannoe">Количество убранного:</label>
+        <input class="pricol" type="number" name="ubrannoe" id="ubrannoe">
+        <div class="locateuborka" style="display: block;">
+        <h3>Названия убранных локаций:</h3>
+        <div id="mur"></div>
+        <button class="pricol" style="padding: 4px; cursor: pointer;" onclick="addlocate()">Добавить локацию</button>
+      </div>
+      <br class="probeluborka" style="display: none;">
+      <h3>Вставка скриншота (ImgBB):</h3>
+      <input type="file" id="imageInputUborka" accept="image/*">
+      <br><br>
+    </div>
+    <div style="display: flex; justify-content: flex-start;">
+      <button class="pricol" style="padding: 4px; cursor: pointer;" onclick="uploadImage('imageInputUborka', 'ssilka1')">Загрузить на ImgBB</button>
+  </div>
+  <form align="left">
+    <h3>Или вставка готовой ссылки:</h3>
+    <input class="pricol" type="text" name="ssilka" id="ssilka1">
+  </form>
+    <br>
+    <button class="pricol" style="padding: 4px; cursor: pointer;" onclick="vivodotcheta()">Вывести отчёт</button>
+  </div>
+  <div class="oforma pathblock" id="liz" style="display: none">
+      <h1>Вылизывание</h1>
+      <div align="left">
+      <label for="idofuchastnikliz">ID участника:</label>
+        <input class="pricol" type="number" name="idofuchastnikliz" id="idofuchastnikliz">
+        <br>
+        <label for="idofkolvoliz">Количество вылизанных: </label>
+        <input class="pricol" type="number" name="idofkolvoliz" id="idofkolvoliz">
+        <br>
+        <h3>Вставка скриншота (ImgBB):</h3>
+        <input type="file" id="imageInputLiz" accept="image/*">
+        <br><br>
+        </div>
+      <div style="display: flex; justify-content: flex-start;">
+        <button class="pricol" style="padding: 4px; cursor: pointer;" onclick="uploadImage('imageInputLiz', 'ssilka2')">Загрузить на ImgBB</button>
+    </div>
+    <form align="left">
+      <h3>Или вставка готовой ссылки:</h3>
+      <input class="pricol" type="text" name="ssilka" id="ssilka2">
+    </form>
+    <br>
+    <button class="pricol" style="padding: 4px; cursor: pointer;" onclick="vivodotcheta()">Вывести отчёт</button>
+    </div>
+    <br>
+    <!--А ВОТ ТУТ ВЫПАДАЕТ ОТЧЁТИК-->
+    <div class="oforma">
+      <h1>Готовый отчёт</h1>
+      <textarea id="one" placeholder="Тут будет ваш отчёт"></textarea>
+    </div>
+    <br>
+    <!--ХРЕНЬ КИДАЮЩАЯ НА ГЛАВНУЮ-->
+    <a href="../" style="text-decoration: none;">
+      <div class="oforma ssilka">
+        <h2>ГЛАВНАЯ</h2>
+      </div>
+      </a>
+    </div>
+  </div>
+  </body>
+</html>
